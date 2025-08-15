@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotton Disease Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    input[type="file"] {
+      margin: 10px 0;
+    }
+    .prediction {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cotton Disease Prediction</h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*" required>
+      <br>
+      <button type="submit">Upload & Predict</button>
+    </form>
+
+    {% if prediction %}
+      <div class="prediction">
+        Prediction: {{ prediction }}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
